@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lea Peachy Massage & Spa | Luxury Wellness Sanctuary</title>
+  <meta name="description" content="A tranquil sanctuary dedicated to physical renewal and lasting serenity. Book custom Swedish, Deep Tissue, Hot Stone, and Aromatherapy massages.">
+  
+  <!-- Favicon (Site Icon) -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header" id="main-header">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo-link">
+        <img src="assets/logo.png" alt="Lea Peachy Logo" class="logo-img">
+        <div class="logo-text">
+          <span>LEA PEACHY</span>
+          <span class="logo-tagline">MASSAGE & SPA</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="desktop-cta">
+        <button class="btn-primary open-booking-modal">Book Appointment</button>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" id="mobile-toggle-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay Drawer -->
+  <div class="mobile-menu-overlay" id="mobile-nav-overlay">
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="btn-primary open-booking-modal">Book Appointment</button>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-container">
+      <!-- Video Player 0 -->
+      <video id="hero-vid-0" class="hero-video-player active" autoplay muted playsinline preload="auto">
+        <source src="https://player.vimeo.com/external/345108209.sd.mp4?s=b4f166f605f51273191f8fcbfd3a6580bed03e7e&profile_id=139&oauth2_token_id=1223210874" type="video/mp4">
+      </video>
+
+      <!-- Video Player 1 -->
+      <video id="hero-vid-1" class="hero-video-player" muted playsinline preload="auto">
+        <source src="https://player.vimeo.com/external/345107941.sd.mp4?s=42a04059270f6eb66786275730fd26057f3c98f5&profile_id=139&oauth2_token_id=1223210874" type="video/mp4">
+      </video>
+
+      <!-- Overlay Overlay -->
+      <div class="hero-overlay"></div>
+
+      <!-- Hero Content -->
+      <div class="hero-content">
+        <h1 class="hero-title">A Sanctuary of Pure Rest & Rejuvenation</h1>
+        <p class="hero-subtitle">
+          Leave the outside world behind and step into a space designed around your comfort and well-being. Every detail of your visit is crafted to restore physical harmony and quiet the mind.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary open-booking-modal">Book Appointment</button>
+          <a href="services.html" class="btn-secondary">View Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome / Intro section -->
+    <section class="section-medium container-narrow">
+      <span style="font-family: var(--font-tenor); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-gold); display: block; margin-bottom: 1rem;">
+        Welcome to Lea Peachy
+      </span>
+      <h2 class="intro-title" style="font-family: var(--font-cormorant); font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--color-forest); margin-bottom: 2rem;">
+        Your Retreat for Healing & Serenity
+      </h2>
+      <p style="font-family: var(--font-tenor); font-size: 1.05rem; line-height: 1.8; color: var(--color-charcoal); margin-bottom: 2.5rem; opacity: 0.9;">
+        At Lea Peachy, we offer an escape from the relentless pace of daily life. Our curated therapies combine timeless holistic touch with organic botanicals to release muscle tension, restoring a profound sense of wellness to your mind and body. Each session begins with a personal consultation so your therapist can tailor every detail to what your body needs that day. Whether you are seeking relief from chronic tension or simply craving a quiet afternoon for yourself, Lea Peachy is here to welcome you.
+      </p>
+      <a href="about.html" class="btn-outline-forest">Our Philosophy</a>
+    </section>
+
+    <!-- Featured Services Preview Grid -->
+    <section class="section-large" style="background-color: var(--color-white);">
+      <div class="container-wide">
+        <h2>Featured Treatments</h2>
+
+        <div class="grid-3-col" style="margin-bottom: 4.5rem;">
+          <!-- Card 1: Swedish -->
+          <div class="card-hover">
+            <div class="card-img-frame">
+              <img src="assets/swedish_massage.png" alt="Swedish Massage" class="card-img">
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-header-row">
+                  <h3 class="card-title">Swedish Massage</h3>
+                  <span class="card-price">$200</span>
+                </div>
+                <p class="card-desc">
+                  A gentle full-body therapy using long, flowing strokes and soft kneading to melt tension and quiet the mind. Perfect for first-time visitors or a beloved ritual for returning guests, this treatment guides your body into deep, restorative calm.
+                </p>
+              </div>
+              <button class="btn-outline-forest open-booking-modal" style="width: 100%; padding: 0.8rem 1rem; font-size: 0.8rem;">
+                Book Appointment
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2: Deep Tissue -->
+          <div class="card-hover">
+            <div class="card-img-frame">
+              <img src="assets/deep_tissue.png" alt="Deep Tissue Massage" class="card-img">
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-header-row">
+                  <h3 class="card-title">Deep Tissue Massage</h3>
+                  <span class="card-price">$300</span>
+                </div>
+                <p class="card-desc">
+                  Ideal for athletes, desk workers, and anyone carrying deep-seated tension, this treatment applies slow, deliberate pressure to reach the innermost muscle layers. Your therapist targets problem areas like the neck, lower back, and shoulders, releasing chronic soreness and restoring your full range of motion.
+                </p>
+              </div>
+              <button class="btn-outline-forest open-booking-modal" style="width: 100%; padding: 0.8rem 1rem; font-size: 0.8rem;">
+                Book Appointment
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3: Hot Stone -->
+          <div class="card-hover">
+            <div class="card-img-frame">
+              <img src="assets/hot_stone.png" alt="Hot Stone Massage" class="card-img">
+            </div>
+            <div class="card-details">
+              <div>
+                <div class="card-header-row">
+                  <h3 class="card-title">Hot Stone Massage</h3>
+                  <span class="card-price">$139</span>
+                </div>
+                <p class="card-desc">
+                  Heated basalt stones are placed along key energy points and glided across your muscles, creating a warming sensation that penetrates deep beneath the skin. The radiant heat loosens tight muscles and eases stiffness, leaving you feeling balanced, grounded, and completely at peace.
+                </p>
+              </div>
+              <button class="btn-outline-forest open-booking-modal" style="width: 100%; padding: 0.8rem 1rem; font-size: 0.8rem;">
+                Book Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="services.html" class="btn-primary">View All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Lea Peachy Standards -->
+    <section class="section-large" style="background-color: var(--color-forest); color: var(--bg-cream); border-top: 1px solid rgba(201, 162, 75, 0.2); border-bottom: 1px solid rgba(201, 162, 75, 0.2);">
+      <div class="container-wide">
+        <h2 style="color: var(--bg-cream);" class="dark-sec-title">The Lea Peachy Standards</h2>
+
+        <div class="grid-4-col" style="margin-top: 4rem;">
+          <!-- Standard 1 -->
+          <div style="text-align: center; padding: 1rem;">
+            <h3 style="color: var(--color-gold); font-size: 1.4rem; font-family: var(--font-cormorant); margin-bottom: 1rem;">
+              Master Therapists
+            </h3>
+            <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.7;">
+              Licensed, nationally certified professionals with years of experience across international healing modalities. Every session is guided by expertise, genuine care, and an intuitive approach that adapts to your body in real time.
+            </p>
+          </div>
+
+          <!-- Standard 2 -->
+          <div style="text-align: center; padding: 1rem;">
+            <h3 style="color: var(--color-gold); font-size: 1.4rem; font-family: var(--font-cormorant); margin-bottom: 1rem;">
+              Organic Elements
+            </h3>
+            <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.7;">
+              We source the finest cold-pressed oils, shea butters, and botanical extracts from suppliers who share our commitment to purity. Every product is free from synthetic fragrances, parabens, and harsh chemicals.
+            </p>
+          </div>
+
+          <!-- Standard 3 -->
+          <div style="text-align: center; padding: 1rem;">
+            <h3 style="color: var(--color-gold); font-size: 1.4rem; font-family: var(--font-cormorant); margin-bottom: 1rem;">
+              Tailored Experience
+            </h3>
+            <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.7;">
+              Every visit begins with a one-on-one consultation about your lifestyle, areas of discomfort, and wellness goals. From pressure level to oil selection, your treatment is shaped entirely around you.
+            </p>
+          </div>
+
+          <!-- Standard 4 -->
+          <div style="text-align: center; padding: 1rem;">
+            <h3 style="color: var(--color-gold); font-size: 1.4rem; font-family: var(--font-cormorant); margin-bottom: 1rem;">
+              Serene Ambiance
+            </h3>
+            <p style="opacity: 0.8; font-size: 0.9rem; line-height: 1.7;">
+              An oasis of quietude featuring calming acoustic design, gentle ambient lighting, and the subtle fragrance of organic essential oils. Heated massage tables welcome you with warmth from the moment you lie down.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Experiences Testimonials Slider -->
+    <section class="section-large" style="background-color: var(--bg-cream);">
+      <div class="container-narrow">
+        <h2>Client Experiences</h2>
+
+        <div class="testimonial-container">
+          <!-- Slide 1 -->
+          <div class="testimonial-slide active">
+            <p class="testimonial-quote">
+              &ldquo;An absolute sanctuary from the moment I walked in. The deep tissue massage was perfectly tailored to my tension points, and my therapist took the time to understand exactly where I was holding stress. The atmosphere, soft lighting, and calming fragrance put me at ease before the session even began.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Eleanor V.</h4>
+            <span class="testimonial-treatment">Deep Tissue Massage</span>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">
+              &ldquo;Lea Peachy has completely redefined what relaxation means to me. From the warm lighting to the skilled aromatherapy treatment, every minute was pure bliss. My therapist selected a custom essential oil blend based on how I was feeling, and the scent alone transported me somewhere far from everyday stress.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Marcus K.</h4>
+            <span class="testimonial-treatment">Aromatherapy Massage</span>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">
+              &ldquo;Booking was effortless, and the experience was even better than I imagined. The hot stone massage melted away months of tension in my back and shoulders, and the therapist's technique was so fluid I nearly drifted off to sleep. I cannot recommend this place enough.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Sophia L.</h4>
+            <span class="testimonial-treatment">Hot Stone Massage</span>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">
+              &ldquo;The Swedish massage was exactly what I needed to unwind after a demanding work week. The long, soothing strokes combined with a peaceful environment dissolved all my stress. I left feeling completely refreshed and light.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Diana M.</h4>
+            <span class="testimonial-treatment">Swedish Massage</span>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">
+              &ldquo;An incredible experience from start to finish. My partner and I booked the couples massage and were blown away by the serene treatment suite and attentive staff. It was the perfect escape for our anniversary.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Julian & Clara</h4>
+            <span class="testimonial-treatment">Couples Massage</span>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="testimonial-slide">
+            <p class="testimonial-quote">
+              &ldquo;Reflexology is often overlooked, but the session here was truly transformative. The therapist targeted specific pressure points on my feet, sending a wave of relaxation through my entire body. Highly recommended.&rdquo;
+            </p>
+            <h4 class="testimonial-author">Arthur P.</h4>
+            <span class="testimonial-treatment">Foot Reflexology</span>
+          </div>
+        </div>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+          <button class="slider-dot active" aria-label="Show review 1"></button>
+          <button class="slider-dot" aria-label="Show review 2"></button>
+          <button class="slider-dot" aria-label="Show review 3"></button>
+          <button class="slider-dot" aria-label="Show review 4"></button>
+          <button class="slider-dot" aria-label="Show review 5"></button>
+          <button class="slider-dot" aria-label="Show review 6"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="section-medium text-center" style="position: relative; background-color: var(--color-forest); overflow: hidden;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; backgroundImage: radial-gradient(circle at center, rgba(61, 107, 82, 0.3) 0%, transparent 70%);"></div>
+      <div style="position: relative; z-index: 2; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: var(--bg-cream);" class="cta-title">Your Moment of Calm Is Waiting</h2>
+        <p style="color: var(--bg-cream); opacity: 0.85; margin-bottom: 3rem; font-size: 1rem; font-family: var(--font-tenor);">
+          Give your body the care it deserves. Book your appointment today and discover why our clients return to Lea Peachy again and again.
+        </p>
+        <button class="btn-primary open-booking-modal">Book Appointment</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <h3 class="footer-brand-title">LEA PEACHY</h3>
+        <p class="footer-brand-desc">
+          A tranquil sanctuary in Florida dedicated to physical renewal and lasting serenity. Our skilled therapists combine time-honored bodywork and organic botanicals to restore your body and mind.
+        </p>
+        <span class="footer-location-tag">Florida, USA</span>
+      </div>
+
+      <!-- Sanctuary Hours column -->
+      <div>
+        <h3 class="footer-sec-title">Sanctuary Hours</h3>
+        <ul class="footer-hours">
+          <li>
+            <span>Mon - Sat:</span>
+            <span class="time-highlight">9:00 AM - 8:00 PM</span>
+          </li>
+          <li>
+            <span>Sun:</span>
+            <span class="time-highlight">11:00 AM - 6:00 PM</span>
+          </li>
+          <li class="note">
+            * Treatments are by appointment only.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Quick Navigation links -->
+      <div>
+        <h3 class="footer-sec-title">Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="services.html" class="footer-link">Services</a></li>
+          <li><a href="about.html" class="footer-link">About Us</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Connect column (socials & actions) -->
+      <div>
+        <h3 class="footer-sec-title">Connect With Us</h3>
+        <ul class="footer-links">
+          <li>
+            <button class="footer-btn open-booking-modal">Book Appointment</button>
+          </li>
+          <li>
+            <a href="https://t.me/leapeachy" target="_blank" class="footer-link">Telegram Support</a>
+          </li>
+          <li>
+            <a href="https://wa.me/10000000000" target="_blank" class="footer-link">WhatsApp Inquiry</a>
+          </li>
+        </ul>
+        <div class="footer-social-icons">
+          <a href="#" class="footer-link" aria-label="Facebook Icon">
+            <!-- SVG placeholder for luxury look -->
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H7v3h2v9h4v-9h3.6l.4-3H13V6c0-.5.5-1 1-1h2V1h-3c-3 0-5 2-5 5v2z"/></svg>
+          </a>
+          <a href="#" class="footer-link" aria-label="Instagram Icon">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.1a9.9 9.9 0 0 0-10 10 9.9 9.9 0 0 0 10 10 9.9 9.9 0 0 0 10-10A9.9 9.9 0 0 0 12 2.1zm0 18A8.1 8.1 0 0 1 3.9 12 8.1 8.1 0 0 1 12 3.9 8.1 8.1 0 0 1 20.1 12 8.1 8.1 0 0 1 12 20.1zm4-11.8a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 16 8.3zm-4 1.3a2.4 2.4 0 1 0 2.4 2.4A2.4 2.4 0 0 0 12 9.6z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright Strip -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Lea Peachy Massage & Spa. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Booking Modal Container -->
+  <div class="booking-modal-overlay">
+    <div class="booking-modal-container">
+      <button class="modal-close-btn" aria-label="Close modal">&times;</button>
+      <h3 class="modal-title">Select Booking Method</h3>
+      <p class="modal-desc">
+        Choose your preferred platform to request an appointment. Our team responds promptly on all channels.
+      </p>
+      
+      <div class="modal-channels">
+        <a href="https://wa.me/10000000000" target="_blank" class="channel-btn channel-whatsapp">
+          <!-- WhatsApp Icon -->
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.437.002 9.861-4.416 9.864-9.865.003-2.636-1.02-5.11-2.884-6.978C16.326 1.895 13.845.869 11.2.869c-5.441 0-9.865 4.417-9.867 9.866-.002 1.705.452 3.37 1.312 4.869l-1.02 3.725 3.822-1.002zM18.06 14.88c-.3-.15-1.774-.875-2.046-.975-.27-.1-.468-.15-.665.15-.198.3-.765.95-.937 1.15-.173.2-.345.225-.645.075-.3-.15-1.27-.468-2.42-1.493-.893-.797-1.497-1.782-1.672-2.08-.175-.3-.018-.463.13-.612.134-.133.3-.347.45-.52.15-.173.2-.3.3-.5.1-.2.05-.375-.025-.525-.075-.15-.665-1.603-.91-2.193-.24-.577-.482-.5-.665-.51-.173-.008-.37-.01-.568-.01-.198 0-.52.075-.79.37-.27.3-1.033 1.01-1.033 2.46s1.056 2.85 1.204 3.05c.148.2 2.077 3.173 5.033 4.453.703.303 1.25.485 1.677.62.709.227 1.353.195 1.862.119.568-.085 1.774-.725 2.022-1.425.25-.7.25-1.295.174-1.424-.074-.13-.272-.206-.572-.355z"/></svg>
+          WhatsApp
+        </a>
+        <a href="https://t.me/leapeachy" target="_blank" class="channel-btn channel-telegram">
+          <!-- Telegram Icon -->
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .02a12 12 0 1 0 12 12A12 12 0 0 0 12 .02zm5.56 8.16L15.38 18.5c-.17.76-.62.94-1.25.59L10.3 16.3l-1.85 1.77a1 1 0 0 1-.78.37l.27-3.9 7.08-6.4c.3-.27-.07-.42-.48-.15l-8.76 5.52-3.77-1.18c-.82-.26-.84-.82.17-1.22l14.75-5.69c.68-.25 1.28.16 1.03.9z"/></svg>
+          Telegram
+        </a>
+        <a href="tel:+10000000000" class="channel-btn channel-phone">
+          <!-- Phone Icon -->
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M21.384 17.791l-3.75-3.75a1.254 1.254 0 0 0-1.768 0l-1.1 1.1a16.29 16.29 0 0 1-5.657-5.657l1.1-1.1a1.254 1.254 0 0 0 0-1.768l-3.75-3.75a1.254 1.254 0 0 0-1.768 0L2.1 5.514A4.89 4.89 0 0 0 .5 9.043a18.231 18.231 0 0 0 14.457 14.457 4.89 4.89 0 0 0 3.529-1.6l2.648-2.648a1.252 1.252 0 0 0 0-1.768l.25-.25z"/></svg>
+          Call Us
+        </a>
+        <a href="mailto:leamassage02@gmail.com" class="channel-btn channel-email">
+          <!-- Email Icon -->
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          Send Email
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript logic -->
+  <script src="script.js"></script>
+</body>
+</html>
