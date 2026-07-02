@@ -1091,15 +1091,13 @@ a {
   display: none;
 }
 
-.form-alert.success {
-  display: block;
+.form-alert-success {
   background-color: rgba(61, 107, 82, 0.1);
   border: 1px solid var(--color-sage);
   color: var(--color-forest);
 }
 
-.form-alert.error {
-  display: block;
+.form-alert-error {
   background-color: rgba(220, 53, 69, 0.08);
   border: 1px solid #DC3545;
   color: #DC3545;
