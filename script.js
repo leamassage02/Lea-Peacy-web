@@ -204,7 +204,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const formData = new FormData(contactForm);
-        const response = await fetch("/contact.php", {
+        // Dynamically resolve contact.php path based on script.js tag source
+        const scriptTag = document.querySelector('script[src*="script.js"]');
+        const scriptSrc = scriptTag ? scriptTag.getAttribute('src') : 'script.js';
+        const projectRoot = scriptSrc.replace('script.js', '');
+        const response = await fetch(projectRoot + "contact.php", {
           method: "POST",
           body: formData
         });
