@@ -112,7 +112,8 @@ h2::after {
 .dark-sec-title::after,
 .cta-title::after,
 .about-title::after,
-.no-after h2::after {
+.no-after h2::after,
+.no-after::after {
   display: none !important;
 }
 
@@ -215,13 +216,12 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  zIndex: 100;
+  z-index: 100;
   background-color: rgba(248, 243, 234, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(31, 58, 46, 0.03);
   transition: all 0.3s ease;
-  z-index: 100;
 }
 
 .site-header.scrolled {
@@ -266,7 +266,7 @@ a {
 
 .logo-text {
   font-family: var(--font-cormorant);
-  fontSize: 1.4rem;
+  font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.08em;
   color: var(--color-forest);
@@ -394,6 +394,23 @@ a {
   list-style: none;
 }
 
+.mobile-nav-links li {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mobile-menu-overlay.open .mobile-nav-links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation for each nav item */
+.mobile-menu-overlay.open .mobile-nav-links li:nth-child(1) { transition-delay: 0.05s; }
+.mobile-menu-overlay.open .mobile-nav-links li:nth-child(2) { transition-delay: 0.1s; }
+.mobile-menu-overlay.open .mobile-nav-links li:nth-child(3) { transition-delay: 0.15s; }
+.mobile-menu-overlay.open .mobile-nav-links li:nth-child(4) { transition-delay: 0.2s; }
+
 .mobile-nav-links a {
   font-family: var(--font-tenor);
   font-size: 1.2rem;
@@ -440,6 +457,30 @@ a {
 }
 
 /* ==========================================================================
+   Scroll-Triggered Animations
+   ========================================================================== */
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+              transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delay for grid children */
+.animate-on-scroll.stagger-1 { transition-delay: 0.1s; }
+.animate-on-scroll.stagger-2 { transition-delay: 0.2s; }
+.animate-on-scroll.stagger-3 { transition-delay: 0.3s; }
+.animate-on-scroll.stagger-4 { transition-delay: 0.4s; }
+.animate-on-scroll.stagger-5 { transition-delay: 0.5s; }
+.animate-on-scroll.stagger-6 { transition-delay: 0.6s; }
+
+/* ==========================================================================
    Hero Section & Dual Crossfade Players
    ========================================================================== */
 
@@ -452,7 +493,7 @@ a {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: url('assets/hero_bg.png');
+  background-image: url('/assets/hero_bg.png');
   background-size: cover;
   background-position: center;
 }
@@ -481,7 +522,6 @@ a {
   width: 100%;
   height: 100%;
   background-color: rgba(31, 58, 46, 0.8);
-  zIndex: 2;
   z-index: 2;
 }
 
@@ -605,6 +645,8 @@ a {
   justify-content: space-between;
   align-items: baseline;
   margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .card-title {
@@ -619,6 +661,16 @@ a {
   color: var(--color-gold);
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+.card-duration {
+  font-family: var(--font-tenor);
+  font-size: 0.8rem;
+  color: var(--color-charcoal);
+  opacity: 0.6;
+  letter-spacing: 0.05em;
+  margin-top: -0.8rem;
+  margin-bottom: 1rem;
 }
 
 .card-desc {
@@ -647,6 +699,16 @@ a {
 
 .testimonial-slide.active {
   display: block;
+}
+
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  letter-spacing: 0.15em;
 }
 
 .testimonial-quote {
@@ -682,7 +744,6 @@ a {
 .slider-dot {
   width: 10px;
   height: 10px;
-  borderRadius: 50%;
   border: none;
   border-radius: 50%;
   background-color: rgba(31, 58, 46, 0.2);
@@ -696,14 +757,21 @@ a {
 }
 
 /* ==========================================================================
-   Photo Gallery
+   Photo Gallery with Lightbox
    ========================================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.5rem;
+}
 
 .gallery-item-frame {
   position: relative;
   overflow: hidden;
   height: 300px;
   border: 1px solid rgba(31, 58, 46, 0.05);
+  cursor: pointer;
 }
 
 .gallery-image {
@@ -715,6 +783,79 @@ a {
 
 .gallery-item-frame:hover .gallery-image {
   transform: scale(1.08);
+}
+
+/* Gallery caption overlay */
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(31, 58, 46, 0.85) 0%, transparent 100%);
+  color: var(--bg-cream);
+  font-family: var(--font-tenor);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item-frame:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox overlay */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(31, 58, 46, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.lightbox-overlay.open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(201, 162, 75, 0.3);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: var(--bg-cream);
+  font-size: 2rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  z-index: 301;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
 }
 
 /* ==========================================================================
@@ -832,13 +973,6 @@ a {
 }
 .channel-telegram:hover {
   background-color: #0077b3;
-}
-
-.channel-phone {
-  background-color: var(--color-forest);
-}
-.channel-phone:hover {
-  background-color: #172b22;
 }
 
 .channel-email {
@@ -979,12 +1113,6 @@ a {
   padding-left: 4px;
 }
 
-.footer-social-icons {
-  display: flex;
-  gap: 1.25rem;
-  margin-top: 1rem;
-}
-
 .footer-btn {
   font-family: var(--font-tenor);
   font-size: 0.9rem;
@@ -993,6 +1121,8 @@ a {
   background: none;
   cursor: pointer;
   transition: color 0.3s ease;
+  text-align: left;
+  padding: 0;
 }
 
 .footer-btn:hover {
@@ -1101,6 +1231,43 @@ a {
   background-color: rgba(220, 53, 69, 0.08);
   border: 1px solid #DC3545;
   color: #DC3545;
+}
+
+/* ==========================================================================
+   Back to Top Button
+   ========================================================================== */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-forest);
+  color: var(--bg-cream);
+  border: 1px solid rgba(201, 162, 75, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease, background-color 0.3s ease;
+  z-index: 50;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  background-color: var(--color-gold);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================

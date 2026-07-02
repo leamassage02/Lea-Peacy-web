@@ -44,22 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Booking Modal Handler
   // ==========================================================================
   const bookingModal = document.querySelector(".booking-modal-overlay");
-  const openModalBtns = document.querySelectorAll(".open-booking-modal, .btn-primary, .btn-secondary, .btn-outline-forest");
+  const openModalBtns = document.querySelectorAll(".open-booking-modal");
   const closeModalBtn = document.querySelector(".modal-close-btn");
-
-  // Filter open buttons to make sure we don't grab form submits or normal page links
-  const validOpenBtns = Array.from(openModalBtns).filter(btn => {
-    // Skip if it's a link to another page (like "Philosophy" or "View Services")
-    if (btn.tagName === "A" && btn.getAttribute("href") !== "#" && btn.getAttribute("href")) {
-      // Except if it explicitly has the open-booking-modal class
-      return btn.classList.contains("open-booking-modal");
-    }
-    // Skip if it's a form submit button in contact page
-    if (btn.getAttribute("type") === "submit") {
-      return false;
-    }
-    return true;
-  });
 
   // Function to open modal
   const openModal = (e) => {
@@ -81,12 +67,19 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Attach event listeners
-  validOpenBtns.forEach(btn => btn.addEventListener("click", openModal));
+  openModalBtns.forEach(btn => btn.addEventListener("click", openModal));
   closeModalBtn?.addEventListener("click", closeModal);
 
   // Close modal when clicking on overlay background
   bookingModal?.addEventListener("click", (e) => {
     if (e.target === bookingModal) {
+      closeModal();
+    }
+  });
+
+  // Close modal on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
       closeModal();
     }
   });
@@ -211,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const formData = new FormData(contactForm);
-        const response = await fetch("contact.php", {
+        const response = await fetch("/contact.php", {
           method: "POST",
           body: formData
         });
@@ -242,6 +235,90 @@ document.addEventListener("DOMContentLoaded", () => {
           submitBtn.innerHTML = originalBtnText;
         }
       }
+    });
+  }
+
+  // ==========================================================================
+  // 6. Scroll-Triggered Entrance Animations (IntersectionObserver)
+  // ==========================================================================
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+
+  if (animatedElements.length > 0 && "IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target); // Only animate once
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    animatedElements.forEach((el) => observer.observe(el));
+  } else {
+    // Fallback: make everything visible immediately
+    animatedElements.forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // ==========================================================================
+  // 7. Gallery Lightbox
+  // ==========================================================================
+  const lightbox = document.querySelector(".lightbox-overlay");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxClose = document.querySelector(".lightbox-close");
+  const galleryItems = document.querySelectorAll(".gallery-item-frame");
+
+  if (lightbox && lightboxImg && galleryItems.length > 0) {
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const img = item.querySelector(".gallery-image");
+        if (img) {
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+          lightbox.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+      });
+    });
+
+    // Close lightbox
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "auto";
+    };
+
+    lightboxClose?.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 8. Back to Top Button
+  // ==========================================================================
+  const backToTopBtn = document.querySelector(".back-to-top");
+
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 600) {
+        backToTopBtn.classList.add("visible");
+      } else {
+        backToTopBtn.classList.remove("visible");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 });
