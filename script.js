@@ -204,11 +204,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       try {
         const formData = new FormData(contactForm);
-        // Dynamically resolve contact.php path based on script.js tag source
-        const scriptTag = document.querySelector('script[src*="script.js"]');
-        const scriptSrc = scriptTag ? scriptTag.getAttribute('src') : 'script.js';
-        const projectRoot = scriptSrc.replace('script.js', '');
-        const response = await fetch(projectRoot + "contact.php", {
+        // Determine path to contact.php based on page location with cache-buster
+        const isContactPage = window.location.pathname.indexOf('/contact') !== -1;
+        const fetchUrl = (isContactPage ? "../contact.php" : "contact.php") + "?t=" + Date.now();
+        const response = await fetch(fetchUrl, {
           method: "POST",
           body: formData
         });
