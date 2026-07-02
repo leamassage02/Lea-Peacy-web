@@ -83,18 +83,16 @@ $email_content = '
 </body>
 </html>';
 
-// Dynamic headers to conform with Hostinger server configurations (prevents spoofing)
 $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'leapeachyspa.com';
-// Stripping www. prefix from host if present to make email cleaner
+// Stripping www. prefix and any port numbers from host
 $host_clean = preg_replace('/^www\./', '', $host);
+$host_clean = explode(':', $host_clean)[0];
 
-$headers = [
-    'MIME-Version' => '1.0',
-    'Content-Type' => 'text/html; charset=UTF-8',
-    'From' => 'Lea Peachy Spa <noreply@' . $host_clean . '>',
-    'Reply-To' => $name . ' <' . $email . '>',
-    'X-Mailer' => 'PHP/' . phpversion()
-];
+$headers = "MIME-Version: 1.0" . "\r\n";
+$headers .= "Content-Type: text/html; charset=UTF-8" . "\r\n";
+$headers .= "From: Lea Peachy Spa <noreply@" . $host_clean . ">" . "\r\n";
+$headers .= "Reply-To: " . $name . " <" . $email . ">" . "\r\n";
+$headers .= "X-Mailer: PHP/" . phpversion();
 
 // Send email using PHP's native mail system
 $success = mail($to, $subject, $email_content, $headers);
